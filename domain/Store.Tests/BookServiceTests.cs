@@ -15,10 +15,10 @@ namespace Store.Tests
         {
             var bookRepositoreyStub = new Mock<IBookRepository>();
             bookRepositoreyStub.Setup(x => x.GetAllByIsbn(It.IsAny<string>()))
-                               .Returns(new[] { new Book(1, "", "", "") });
+                               .Returns(new[] { new Book(1, "", "", "", "", 0m) });
 
             bookRepositoreyStub.Setup(x => x.GetAllByTitleOrAuthor(It.IsAny<string>()))
-                               .Returns(new[] { new Book(2, "", "", "") });
+                               .Returns(new[] { new Book(2, "", "", "", "", 0m) });
 
             var bookService = new BookService(bookRepositoreyStub.Object);
             var validIsbn = "ISBN 12345-67890";
@@ -33,10 +33,10 @@ namespace Store.Tests
         {
             var bookRepositoreyStub = new Mock<IBookRepository>();
             bookRepositoreyStub.Setup(x => x.GetAllByIsbn(It.IsAny<string>()))
-                               .Returns(new[] { new Book(1, "", "", "") });
+                               .Returns(new[] { new Book(1, "", "", "", "", 0m) });
 
             bookRepositoreyStub.Setup(x => x.GetAllByTitleOrAuthor(It.IsAny<string>()))
-                               .Returns(new[] { new Book(2, "", "", "") });
+                               .Returns(new[] { new Book(2, "", "", "", "", 0m) });
 
             var bookService = new BookService(bookRepositoreyStub.Object);
             var invalidIsbn = "12345-67890";
